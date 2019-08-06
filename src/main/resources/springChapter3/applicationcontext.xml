@@ -2,14 +2,40 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/context ">
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--开启自动扫描的配置-->
-    <context:component-scan base-package="com.whc.chapter3.ApplicationContext01.useXML" >
-        <!-- <context:exclude-filter type="" expression=""/>-->
-        <!-- <context:include-filter type="" expression=""/>-->
-    </context:component-scan>
+    <!--开启自动扫描的配置 需要添加context 名称空间-->
+    <!--
+         xmlns:context="http://www.springframework.org/schema/context"
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd
+     -->
+<!--    <context:component-scan base-package="com.whc.chapter3.ApplicationContext01.useXML" >-->
+<!--        &lt;!&ndash; <context:exclude-filter type="" expression=""/>&ndash;&gt;-->
+<!--        &lt;!&ndash; <context:include-filter type="" expression=""/>&ndash;&gt;-->
+<!--    </context:component-scan>-->
 
+    <!-- 1.使用setter 方法进行bean的属性赋值-->
+    <bean id="classinfo" name="classinfo" class="com.whc.chapter3.ApplicationContext01.useXML.ClassInfo">
+        <property name="classNo" value="0001"  ></property>
+        <property name="className" value="JavaClass"></property>
+        <property name="classCulture" value="Java is the best language in the world !"></property>
+    </bean>
+    <!-- 2.使用  传统的 构造函数传参的形式进行属性的赋值操作   -->
+    <bean id="student01" name="xiaoming" class="com.whc.chapter3.ApplicationContext01.useXML.StudentInfo">
+        <constructor-arg index="0" name="studentNo" value="201909010001" type="java.lang.String"></constructor-arg>
+        <constructor-arg index="1" name="studentName" value="王小明" type="java.lang.String"></constructor-arg>
+        <constructor-arg index="2" name="studentAge" value="13" type="int"></constructor-arg>
+        <constructor-arg index="3" name="studentSex" value="1" type="int"></constructor-arg>
+        <constructor-arg index="4" name="classInfo" ref="classinfo" type="com.whc.chapter3.ApplicationContext01.useXML.ClassInfo"></constructor-arg>
+    </bean>
+    <!-- 3. 使用 c 命名空间进行的 构造方法的参数传递操作 : 确实是可以少些很多的代码的  -->
+    <!-- xmlns:c="http://www.springframework.org/schema/c" -->
+    <bean id="student02" name="xiaohong" class="com.whc.chapter3.ApplicationContext01.useXML.StudentInfo"
+            c:studentNo="201909010002" c:studentName="王小红" c:studentAge="13" c:studentSex="0" c:classInfo-ref="classinfo">
+    </bean>
 </beans>
