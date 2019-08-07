@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="class01" name="javaclass"
+          class="com.whc.chapter3.ApplicationContext01.SpEL.useXML.ClassInfo"
+          p:classNo="20190001" p:className="javaClass" />
+
+    <bean id="student01" name="wangxiaoming"
+          class="com.whc.chapter3.ApplicationContext01.SpEL.useXML.StudentInfo"
+          p:studentNo="201908070001" p:studentName="王小明" p:studentAge="15"
+          p:classinfo-ref="class01" />
+
+<!-- 1. 下面的这个student02 bean 是使用的student01 bean 中的属性，通过SpEL 表达式 进行属性的设置    -->
+    <bean id="student02" name="wangxiaomingbrother"
+          class="com.whc.chapter3.ApplicationContext01.SpEL.useXML.StudentInfo"
+          p:studentNo="201908070002" p:studentName="王小明的弟弟" p:studentAge="#{student01.studentAge-1}"
+          p:classinfo-ref="class01"/>
+
+</beans>

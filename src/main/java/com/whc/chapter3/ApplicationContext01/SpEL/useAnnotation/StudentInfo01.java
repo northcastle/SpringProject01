@@ -1,27 +1,32 @@
-package com.whc.chapter3.ApplicationContext01.useXML;
+package com.whc.chapter3.ApplicationContext01.SpEL.useAnnotation;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
  * author : whc
- * createTime:2019/8/5  22:44
+ * createTime:2019/8/7  20:08
  */
-public class StudentInfo {
+@Component("studentInfo01")
+public class StudentInfo01 {
+    @Value(value = "#{studentInfoSimple.studentNo}")
     private String studentNo;
+    @Value(value = "#{studentInfoSimple.studentName}")
     private String studentName;
+    @Value("#{studentInfoSimple.studentAge-25}")
     private int studentAge;
-    private int studentSex;
-    private ClassInfo classInfo;
+    @Autowired
+    private ClassInfo classinfo;
 
-    public StudentInfo() {
+    public StudentInfo01() {
     }
 
-    public StudentInfo(String studentNo, String studentName, int studentAge, int studentSex, ClassInfo classInfo) {
+    public StudentInfo01(String studentNo, String studentName, int studentAge, ClassInfo classinfo) {
         this.studentNo = studentNo;
         this.studentName = studentName;
         this.studentAge = studentAge;
-        this.studentSex = studentSex;
-        this.classInfo = classInfo;
+        this.classinfo = classinfo;
     }
 
     public String getStudentNo() {
@@ -48,30 +53,21 @@ public class StudentInfo {
         this.studentAge = studentAge;
     }
 
-    public int getStudentSex() {
-        return studentSex;
+    public ClassInfo getClassinfo() {
+        return classinfo;
     }
 
-    public void setStudentSex(int studentSex) {
-        this.studentSex = studentSex;
-    }
-
-    public ClassInfo getClassInfo() {
-        return classInfo;
-    }
-
-    public void setClassInfo(ClassInfo classInfo) {
-        this.classInfo = classInfo;
+    public void setClassinfo(ClassInfo classinfo) {
+        this.classinfo = classinfo;
     }
 
     @Override
     public String toString() {
         return "StudentInfoSimple{" +
-                "studentNo=" + studentNo +
+                "studentNo='" + studentNo + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", studentAge=" + studentAge +
-                ", studentSex=" + studentSex +
-                ", classInfo=" + classInfo +
+                ", classinfo=" + classinfo +
                 '}';
     }
 }

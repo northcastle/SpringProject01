@@ -75,7 +75,7 @@ public class StudentInfo {
 
     @Override
     public String toString() {
-        return "StudentInfo{" +
+        return "StudentInfoSimple{" +
                 "studentNo=" + studentNo +
                 ", studentName='" + studentName + '\'' +
                 ", studentAge=" + studentAge +

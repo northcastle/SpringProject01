@@ -1,27 +1,23 @@
-package com.whc.chapter3.ApplicationContext01.useXML;
-
-import org.springframework.stereotype.Component;
+package com.whc.chapter3.ApplicationContext01.SpEL.useXML;
 
 /**
  * author : whc
- * createTime:2019/8/5  22:44
+ * createTime:2019/8/7  20:08
  */
 public class StudentInfo {
     private String studentNo;
     private String studentName;
     private int studentAge;
-    private int studentSex;
-    private ClassInfo classInfo;
+    private ClassInfo classinfo;
 
     public StudentInfo() {
     }
 
-    public StudentInfo(String studentNo, String studentName, int studentAge, int studentSex, ClassInfo classInfo) {
+    public StudentInfo(String studentNo, String studentName, int studentAge, ClassInfo classinfo) {
         this.studentNo = studentNo;
         this.studentName = studentName;
         this.studentAge = studentAge;
-        this.studentSex = studentSex;
-        this.classInfo = classInfo;
+        this.classinfo = classinfo;
     }
 
     public String getStudentNo() {
@@ -48,30 +44,21 @@ public class StudentInfo {
         this.studentAge = studentAge;
     }
 
-    public int getStudentSex() {
-        return studentSex;
+    public ClassInfo getClassinfo() {
+        return classinfo;
     }
 
-    public void setStudentSex(int studentSex) {
-        this.studentSex = studentSex;
-    }
-
-    public ClassInfo getClassInfo() {
-        return classInfo;
-    }
-
-    public void setClassInfo(ClassInfo classInfo) {
-        this.classInfo = classInfo;
+    public void setClassinfo(ClassInfo classinfo) {
+        this.classinfo = classinfo;
     }
 
     @Override
     public String toString() {
         return "StudentInfoSimple{" +
-                "studentNo=" + studentNo +
+                "studentNo='" + studentNo + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", studentAge=" + studentAge +
-                ", studentSex=" + studentSex +
-                ", classInfo=" + classInfo +
+                ", classinfo=" + classinfo +
                 '}';
     }
 }
