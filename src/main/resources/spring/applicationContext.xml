@@ -7,6 +7,6 @@
 
     <bean id="provider" class="com.whc.spring.interfaceImpl.HelloWorldMessageProvider"></bean>
     <bean id="render" class="com.whc.spring.interfaceImpl.StandardOutMessageRender"
-          p:messageProvider-ref="provider" ></bean>
+          p:messageProvider-ref="provider"  ></bean>
 
 </beans>

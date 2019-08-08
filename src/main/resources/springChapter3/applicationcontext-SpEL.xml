@@ -17,6 +17,11 @@
     <bean id="student02" name="wangxiaomingbrother"
           class="com.whc.chapter3.ApplicationContext01.SpEL.useXML.StudentInfo"
           p:studentNo="201908070002" p:studentName="王小明的弟弟" p:studentAge="#{student01.studentAge-1}"
-          p:classinfo-ref="class01"/>
+          p:classinfo-ref="class01">
+<!--         p:classinfo-ref="class01"-->
+<!--        <property name="classinfo" >-->
+<!--            <ref bean="javaclass"></ref>-->
+<!--        </property>-->
+    </bean>
 
 </beans>
