@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 1.注入四种集合类型的属性 ： 使用setter 方法的注入-->
+    <bean id="collectionbean01"
+          class="com.whc.chapter3.ApplicationContext01.collectionInjection.useXML.CollectionInjection">
+        <!-- 1.1 放入list集合-->
+        <property name="list">
+            <list>
+                <value>first value -- wanghongchang</value>
+                <value>second value ---123</value>
+                <value>111</value>
+                <value>true</value>
+                <value>111</value>
+            </list>
+        </property>
+        <!--  1.2 放入set 集合,set 集合是会自动去重的 -->
+        <property name="set">
+            <set>
+                <value>first set value --- wanghongchang</value>
+                <value>second set value --- wanghongchang</value>
+                <value>first set value --- wanghongchang</value>
+                <value>222</value>
+                <value>false</value>
+                <value>false</value>
+            </set>
+        </property>
+        <!--   1.3 map 的数据     -->
+        <property name="map">
+            <map>
+                <entry key="studentno" value="201908100001"/>
+                <entry key="studentname" value="wanghognchang"></entry>
+                <entry key="studnetage" value="25"></entry>
+            </map>
+        </property>
+        <!-- 1.4 properties 对象    -->
+        <property name="props">
+            <props>
+                <prop key="classno">20190801</prop>
+                <prop key="classname">javaClass</prop>
+            </props>
+        </property>
+
+    </bean>
+
+    <!--  2.使用util 工具进行的注入配置，然后在bean中使用注解的方式获取此配置中的内容 ,这个地方用来做一下练习即可 -->
+        <!-- 2.1 放入list的值-->
+        <util:list id="mylist" list-class="java.util.ArrayList">
+            <value>first value -- wanghongchang</value>
+            <value>second value -- wanghongchang</value>
+            <!-- 我把上面的collection01 这个bean放进来了-->
+            <ref bean="collectionbean01"></ref>
+        </util:list>
+        <!-- 2.2 放入set的值-->
+        <util:set id="myset" set-class="java.util.HashSet">
+            <value>first set value -- wanghongchang</value>
+            <value>second set value -- wangongchang</value>
+        </util:set>
+        <!-- 2.3 放入map的值-->
+        <util:map id="mymap" map-class="java.util.HashMap">
+            <entry key="studentno" value="201908100002"></entry>
+            <entry key="studentname" value="wanghognchang"></entry>
+            <entry key="studentage" value="25"></entry>
+        </util:map>
+        <!-- 2.4 放入prop的值-->
+        <util:properties id="myprop" >
+            <prop key="classno">2019080001</prop>
+            <prop key="classname">springClass</prop>
+        </util:properties>
+</beans>
