@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    这个是 方法替换 的 xml配置文件 -->
+    <!-- 0.标准的常规bean配置-->
+    <bean id="student01"
+          class="com.whc.chapter3.ApplicationContext01.MethodInjection.MethodReplace.useXML.StudentSay"></bean>
+
+    <!-- 1.配置一个替换过了的bean-->
+    <bean id="reolaceMethod"
+          class="com.whc.chapter3.ApplicationContext01.MethodInjection.MethodReplace.useXML.ReplaceStudentSay"></bean>
+    <bean id="student02" class="com.whc.chapter3.ApplicationContext01.MethodInjection.MethodReplace.useXML.StudentSay" >
+        <replaced-method name="say" replacer="reolaceMethod"></replaced-method>
+        <replaced-method name="say" replacer="reolaceMethod">
+            <arg-type>String</arg-type>
+        </replaced-method>
+    </bean>
+</beans>
