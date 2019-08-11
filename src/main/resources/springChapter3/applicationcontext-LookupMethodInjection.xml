@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    这个是 查找方法注入的 xml配置文件 -->
+    <!--0.设置scope 将此bean设置为非单实例的模式，也就是每次操作，都可以获取一个新的对象，而不是一个对象重复用-->
+    <bean id="singer"
+          class="com.whc.chapter3.ApplicationContext01.MethodInjection.LookupMethod.useXML.Singer"
+          scope="prototype"></bean>
+    <!--1.配置常规操作的bean，使用setter方法将上面的singer对象注入进来-->
+    <bean id="standardlookupbean"
+          class="com.whc.chapter3.ApplicationContext01.MethodInjection.LookupMethod.useXML.StandardLookupMethodDemoBean" >
+        <property name="mySinger" ref="singer"></property>
+    </bean>
+    <!--2.配置方法注入的bean，使用look-method 标签进行的操作-->
+    <bean id="abtracklookupbean"
+          class="com.whc.chapter3.ApplicationContext01.MethodInjection.LookupMethod.useXML.AbstrackLookupMethodDemoBean">
+        <lookup-method name="getMySinger" bean="singer"></lookup-method>
+    </bean>
+</beans>
