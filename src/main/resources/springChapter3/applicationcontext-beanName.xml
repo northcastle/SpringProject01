@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--实验01 : 体会 id,name,全写，不写 beanname 四种情况下 的效果-->
+    <bean id="string01"  class="java.lang.String"></bean>
+    <bean name="string02" class="java.lang.String"></bean>
+    <bean id="string03" name="mystring03" class="java.lang.String"></bean>
+    <bean class="java.lang.String"></bean>
+    <bean class="java.lang.String"></bean>
+
+    <!--实验02 给bean配置别名，通过name属性+alias标签进行操作-->
+    <bean id="wang" name="wang02 wang03,wang04;wang05" class="java.lang.String"></bean>
+    <alias name="wang" alias="wang06"></alias>
+    <alias name="wang02" alias="wang07"></alias>
+
+    <!--实验03 只写name 或者 只写id 的时候的别名的区别-->
+    <bean id="a a1,a2;a3" class="java.lang.String"></bean>
+    <bean name="b b1,b2;b3 b4" class="java.lang.String"></bean>
+</beans>
