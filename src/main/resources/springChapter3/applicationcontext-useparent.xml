@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--爸爸局-->
+    <bean id="baba" class="com.whc.chapter3.ApplicationContext01.useParent.useXML.Singer"
+    c:singerName="BaBa" c:singerAge="35" c:singerWorlds="我是爸爸" c:singerCLassName="JavaClass">
+    </bean>
+
+    <!--son1局-->
+    <bean id="son1" class="com.whc.chapter3.ApplicationContext01.useParent.useXML.Singer"
+        p:singerName="son1" p:singerAge="12" p:singerWorlds="我是儿子1" parent="baba"></bean>
+
+</beans>

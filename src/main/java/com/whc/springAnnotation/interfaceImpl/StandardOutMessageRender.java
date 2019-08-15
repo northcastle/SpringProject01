@@ -2,6 +2,8 @@ package com.whc.springAnnotation.interfaceImpl;
 
 import com.whc.springAnnotation.interfacea.MessageProvider;
 import com.whc.springAnnotation.interfacea.MessageRender;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Primary;
 
 /**
  * author : whc
