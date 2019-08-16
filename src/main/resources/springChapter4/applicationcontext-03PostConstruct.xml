@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--注意：此实验的时候，需要把bean设置为懒加载模式，否则得不到想要的效果-->
+
+    <!--启动java注解的自动配置-->
+    <context:annotation-config></context:annotation-config>
+
+    <!--01使用无参构造器的操作-->
+    <bean id="beanC01"
+          class="com.whc.chapter4.LifeCycle.InitialBean._03UseJSR250_PostConstruct.Singer"
+          lazy-init="true">
+    </bean>
+    <!--02使用有参构造器的操作-->
+    <bean id="beanC02"
+          class="com.whc.chapter4.LifeCycle.InitialBean._03UseJSR250_PostConstruct.Singer"
+          c:name="wanghongchang" c:age="23"
+            lazy-init="true">
+    </bean>
+    <!--03使用setter方法的操作-->
+    <bean id="beanSetter"
+          class="com.whc.chapter4.LifeCycle.InitialBean._03UseJSR250_PostConstruct.Singer"
+          p:name="liujia" p:age="23"
+            lazy-init="true">
+    </bean>
+
+</beans>
