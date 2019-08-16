@@ -1,14 +1,14 @@
 package com.whc.chapter4.LifeCycle.InitialBean._01RunMethod;
 
-import javafx.application.Application;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import javax.xml.transform.Source;
 
 public class TestRunMethod {
+
+    //public List<String> list; 这个是用来测试自动去掉没有用到的导包的
 
     @Test
     public void test01(){
