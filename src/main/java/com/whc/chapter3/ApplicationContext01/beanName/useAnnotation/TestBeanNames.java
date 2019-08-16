@@ -4,8 +4,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import javax.xml.stream.events.EntityReference;
-import javax.xml.transform.Source;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
@@ -54,3 +52,4 @@ public class TestBeanNames {
 
     }
 }
+
