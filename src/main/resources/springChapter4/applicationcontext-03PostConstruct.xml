@@ -32,4 +32,23 @@
             lazy-init="true">
     </bean>
 
+<!--    2. 销毁方法的测试配置 -->
+    <!--01使用无参构造器的操作-->
+    <bean id="destroybean01"
+          class="com.whc.chapter4.LifeCycle.DestroyBean._03useJSR250_PreDestroy.LifeCycleBean"
+          lazy-init="true">
+    </bean>
+    <!--02使用有参构造器的操作-->
+    <bean id="destroybean02"
+          class="com.whc.chapter4.LifeCycle.DestroyBean._03useJSR250_PreDestroy.LifeCycleBean"
+          c:name="wanghongchang" c:age="23"
+          lazy-init="true">
+    </bean>
+    <!--03使用setter方法的操作-->
+    <bean id="destroybean03"
+          class="com.whc.chapter4.LifeCycle.DestroyBean._03useJSR250_PreDestroy.LifeCycleBean"
+          p:name="liujia" p:age="23"
+          lazy-init="true">
+    </bean>
+
 </beans>

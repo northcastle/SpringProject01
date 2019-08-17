@@ -1,8 +1,6 @@
 package com.whc.chapter4.LifeCycle.InitialBean._04Annotation;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.*;
 
 /**
  * author : whc
@@ -13,6 +11,7 @@ import org.springframework.context.annotation.Lazy;
 public class ConfigBean {
 
     @Lazy
+    @Scope("prototype")
     @Bean(name = "beanC01",initMethod = "myinit")
     public Singer bean01(){
         return new Singer();
