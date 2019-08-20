@@ -25,7 +25,7 @@ public class ConfigBeanFactoryBean {
         return messageDigestFactoryBean;
     }
 
-    @Bean("digestManager")
+    @Bean(value = "digestManager")
     public MessageDigestManager manager(){
         MessageDigestManager manager = new MessageDigestManager();
         try {
@@ -35,5 +35,20 @@ public class ConfigBeanFactoryBean {
             e.printStackTrace();
         }
         return manager;
+    }
+
+
+    /**
+     * 下面是 没有实现接口的类作为FactoryBean
+     * 就是常规的操作
+     *
+     * 好像没有和 factory-bean对应的 注解，
+     * 仔细想想 好像也有道理，根本不需要啊
+     * 获取到了这个bean，直接调用方法也就得到了想要的对象了
+     * @return
+     */
+    @Bean("myfactorybean")
+    public MessageDigestFactoryBean2 createBean2(){
+        return new MessageDigestFactoryBean2();
     }
 }

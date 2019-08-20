@@ -7,23 +7,32 @@
 <!--    1.第一个 通过 MessageDigestFactoryBean 返回的 MessageDigest 对象 -->
     <bean id="SHAdigestbean"
           class="com.whc.chapter4.FactoryBeanStudy.MessageDigestFactoryBean"
-          p:algorithName="SHA-1">
+          p:algorithName="SHA-1"
+    lazy-init="true">
     </bean>
 
     <!--    2.第二个 通过 MessageDigestFactoryBean 返回的 MessageDigest 对象 -->
     <bean id="MD5digestbean"
           class="com.whc.chapter4.FactoryBeanStudy.MessageDigestFactoryBean"
-          p:algorithName="MD5">
+          p:algorithName="MD5"
+    lazy-init="true">
     </bean>
 
 <!--    3.创建 正常的 bean 进行测试操作-->
     <bean id="digestManager"
           class="com.whc.chapter4.FactoryBeanStudy.MessageDigestManager"
           p:messageDigest1-ref="SHAdigestbean"
-          p:messageDigest2-ref="MD5digestbean">
+          p:messageDigest2-ref="MD5digestbean"
+    lazy-init="true">
     </bean>
 
-
-
+<!--    4.创建一个 使用factory-bean 属性的bean，来获取指定的对象-->
+    <!--这个bean充当的是工厂bean-->
+    <bean id="myFactoryBean"
+          class="com.whc.chapter4.FactoryBeanStudy.MessageDigestFactoryBean2"></bean>
+    <!--下面的是 上面工厂bean 的使用 -->
+    <bean id="myDigest"
+          factory-bean="myFactoryBean"
+          factory-method="createMessageDigest"></bean>
 
 </beans>
