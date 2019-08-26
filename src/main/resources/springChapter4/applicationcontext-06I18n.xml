@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 1.配置一个必须要有的 名字为 messageSource 的bean -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource"
+          p:basenames-ref="basenames">
+    </bean>
+
+    <!-- 2.基础文件的集合 : 是不是应该在这里写明白 文件的位置啊，对的就是应该在这里写明白了 -->
+    <util:list id="basenames">
+<!--        <value>i18n/buttons</value>-->
+        <value>springChapter4/i18n/labels</value>
+    </util:list>
+
+</beans>
