@@ -85,7 +85,7 @@ public class TestDateTime {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(parseDate);
+               System.out.println(parseDate);
 
         System.out.println("==========================");
 
@@ -93,7 +93,7 @@ public class TestDateTime {
         // 下面这一个是把日期转换成 字符串的操作
         //这个操作好像很简单的样子啊
         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date(156897456);
+        Date date = new Date();
         System.out.println(date);
 
         String simpleDateFormatStr = simpleDateFormat1.format(date);

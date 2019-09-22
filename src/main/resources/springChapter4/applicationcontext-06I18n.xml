@@ -11,7 +11,9 @@
     <!-- 1.配置一个必须要有的 名字为 messageSource 的bean -->
     <bean id="messageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource"
-          p:basenames-ref="basenames">
+          p:basename="springChapter4/i18n/labels" >
+<!--          p:basenames-ref="basenames">-->
+
     </bean>
 
     <!-- 2.基础文件的集合 : 是不是应该在这里写明白 文件的位置啊，对的就是应该在这里写明白了 -->
