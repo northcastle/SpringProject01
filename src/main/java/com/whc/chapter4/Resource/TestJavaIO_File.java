@@ -13,7 +13,7 @@ import java.io.IOException;
  * 这个是基础操作，必会的内容
  * 非常的常用，就要像List一样要掌握
  */
-public class TestJavaIO {
+public class TestJavaIO_File {
 
     /**
      * 1.测试 windows 下的目录 分隔符号 "\"
