@@ -33,6 +33,7 @@ public class TestJavaIO_Use {
     /**
      * 2.测试Linux电脑上的图片复制
      * 这个需要用到网络上的内容
+     * 这个测试已经成功了
      */
     @Test
     public void testRemote() throws Exception{
@@ -89,6 +90,7 @@ public class TestJavaIO_Use {
 
         //2.获取输入流 : 通过urlConnection获取
         InputStream is = urlConnection.getInputStream();
+
         //3.创建普通输出流
         FileOutputStream fos = new FileOutputStream(new File(pathOut));
 
@@ -101,7 +103,7 @@ public class TestJavaIO_Use {
         byte [] b = new byte[1024];
         int len;
         while ((len=bis.read(b)) != -1){
-            bos.write(b);
+            bos.write(b,0,len); // 当读取的时候，需要按照长度进行写，否则会有问题
             bos.flush();
         }
 
