@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd"
+       profile="devaa">
+
+    <!-- 配置dev环境下的bean ,上面的 profile 设置了此配置文件的参数是 dev -->
+    <bean id="foodprovider"
+          class="com.whc.chapter4.Profiles.FoodServiceImplDev"></bean>
+
+</beans>

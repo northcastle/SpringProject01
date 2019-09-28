@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd"
+        profile="proaa">
+
+    <!-- 配置bean,上面的profile 指定了此配置文件 在pro环境下才会生效  -->
+    <bean id="foodprovider"
+          class="com.whc.chapter4.Profiles.FoodServiceImplPro"></bean>
+
+
+</beans>
